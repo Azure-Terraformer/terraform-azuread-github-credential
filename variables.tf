@@ -36,14 +36,17 @@ DESCRIPTION
 
 variable "environment_name" {
   type        = string
-  default     = null
+  default     = ""
   description = <<DESCRIPTION
 The name of the environment (e.g., DEV, PROD).
 This is required if 'entity_type' is set to 'environment'.
 DESCRIPTION
 
   validation {
-    condition     = var.entity_type != "environment" || (var.entity_type == "environment" && var.environment_name != null && length(var.environment_name) > 0)
+    condition = var.entity_type != "environment" || (
+      var.entity_type == "environment" &&
+      try(length(var.environment_name), 0) > 0
+    )
     error_message = "The environment_name variable is required when entity_type is set to 'environment'."
   }
 
@@ -51,14 +54,17 @@ DESCRIPTION
 
 variable "branch_name" {
   type        = string
-  default     = null
+  default     = ""
   description = <<DESCRIPTION
 The name of the branch (e.g., develop, main).
 This is required if 'entity_type' is set to 'branch'.
 DESCRIPTION
 
   validation {
-    condition     = var.entity_type != "branch" || (var.entity_type == "branch" && var.branch_name != null && length(var.branch_name) > 0)
+    condition = var.entity_type != "branch" || (
+      var.entity_type == "branch" &&
+      try(length(var.branch_name), 0) > 0
+    )
     error_message = "The branch_name variable is required when entity_type is set to 'branch'."
   }
 
@@ -66,14 +72,17 @@ DESCRIPTION
 
 variable "tag_name" {
   type        = string
-  default     = null
+  default     = ""
   description = <<DESCRIPTION
 The name of the Git tag (e.g., v1.0.0).
 This is required if 'entity_type' is set to 'tag'.
 DESCRIPTION
 
   validation {
-    condition     = var.entity_type != "tag" || (var.entity_type == "tag" && var.tag_name != null && length(var.tag_name) > 0)
+    condition = var.entity_type != "tag" || (
+      var.entity_type == "tag" &&
+      var.tag_name != null && try(length(var.tag_name), 0) > 0
+    )
     error_message = "The tag_name variable is required when entity_type is set to 'tag'."
   }
 
