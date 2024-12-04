@@ -39,12 +39,12 @@ variable "environment_name" {
   default     = null
   description = <<DESCRIPTION
 The name of the environment (e.g., DEV, PROD).
-This is required if 'type_name' is set to 'environment'.
+This is required if 'entity_type' is set to 'environment'.
 DESCRIPTION
 
   validation {
-    condition     = var.type_name != "environment" || (var.type_name == "environment" && length(var.environment_name) > 0)
-    error_message = "The environment_name variable is required when type_name is set to 'environment'."
+    condition     = var.entity_type != "environment" || (var.entity_type == "environment" && length(var.environment_name) > 0)
+    error_message = "The environment_name variable is required when entity_type is set to 'environment'."
   }
 
 }
@@ -54,12 +54,12 @@ variable "branch_name" {
   default     = null
   description = <<DESCRIPTION
 The name of the branch (e.g., develop, main).
-This is required if 'type_name' is set to 'branch'.
+This is required if 'entity_type' is set to 'branch'.
 DESCRIPTION
 
   validation {
-    condition     = var.type_name != "branch" || (var.type_name == "branch" && length(var.branch_name) > 0)
-    error_message = "The branch_name variable is required when type_name is set to 'branch'."
+    condition     = var.entity_type != "branch" || (var.entity_type == "branch" && length(var.branch_name) > 0)
+    error_message = "The branch_name variable is required when entity_type is set to 'branch'."
   }
 
 }
@@ -69,12 +69,12 @@ variable "tag_name" {
   default     = null
   description = <<DESCRIPTION
 The name of the Git tag (e.g., v1.0.0).
-This is required if 'type_name' is set to 'tag'.
+This is required if 'entity_type' is set to 'tag'.
 DESCRIPTION
 
   validation {
-    condition     = var.type_name != "tag" || (var.type_name == "tag" && length(var.tag_name) > 0)
-    error_message = "The tag_name variable is required when type_name is set to 'tag'."
+    condition     = var.entity_type != "tag" || (var.entity_type == "tag" && length(var.tag_name) > 0)
+    error_message = "The tag_name variable is required when entity_type is set to 'tag'."
   }
 
 }
