@@ -43,7 +43,7 @@ This is required if 'entity_type' is set to 'environment'.
 DESCRIPTION
 
   validation {
-    condition     = var.entity_type != "environment" || (var.entity_type == "environment" && length(var.environment_name) > 0)
+    condition     = var.entity_type != "environment" || (var.entity_type == "environment" && length(coalesce(var.environment_name, "")) > 0)
     error_message = "The environment_name variable is required when entity_type is set to 'environment'."
   }
 
@@ -58,7 +58,7 @@ This is required if 'entity_type' is set to 'branch'.
 DESCRIPTION
 
   validation {
-    condition     = var.entity_type != "branch" || (var.entity_type == "branch" && length(var.branch_name) > 0)
+    condition     = var.entity_type != "branch" || (var.entity_type == "branch" && length(coalesce(var.branch_name, "")) > 0)
     error_message = "The branch_name variable is required when entity_type is set to 'branch'."
   }
 
@@ -73,7 +73,7 @@ This is required if 'entity_type' is set to 'tag'.
 DESCRIPTION
 
   validation {
-    condition     = var.entity_type != "tag" || (var.entity_type == "tag" && length(var.tag_name) > 0)
+    condition     = var.entity_type != "tag" || (var.entity_type == "tag" && length(coalesce(var.tag_name, "")) > 0)
     error_message = "The tag_name variable is required when entity_type is set to 'tag'."
   }
 
