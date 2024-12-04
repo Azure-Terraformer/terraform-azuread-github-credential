@@ -73,7 +73,7 @@ This is required if 'type_name' is set to 'tag'.
 DESCRIPTION
 
   validation {
-    condition     = var.type_name != "tag" || (var.type_name == "tag" && length(var.environment_name) > 0)
+    condition     = var.type_name != "tag" || (var.type_name == "tag" && length(var.tag_name) > 0)
     error_message = "The tag_name variable is required when type_name is set to 'tag'."
   }
 
