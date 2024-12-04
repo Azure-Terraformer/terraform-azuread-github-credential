@@ -78,3 +78,8 @@ DESCRIPTION
   }
 
 }
+
+variable "owners" {
+  type        = list(string)
+  description = "A list of the owners for the Entra ID Application"
+}
