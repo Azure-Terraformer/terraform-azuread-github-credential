@@ -1,12 +1,9 @@
-variable "application_id" {
-  type = string
-}
 variable "name" {
   type = string
 }
 variable "description" {
   type    = string
-  default = null
+  default = ""
 }
 variable "github_organization" {
   type        = string
@@ -96,4 +93,9 @@ DESCRIPTION
     error_message = "The tag_name variable is required when entity_type is set to 'tag'."
   }
 
+}
+
+variable "owners" {
+  type        = list(string)
+  description = "A list of the owners for the Entra ID Application"
 }
