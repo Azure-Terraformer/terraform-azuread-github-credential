@@ -6,4 +6,4 @@ Additionally, the module configures a Federated Identity Credential tailored to 
 
 By automating the creation and configuration of these Azure AD components, the module enhances security, promotes consistent infrastructure deployments, and integrates seamlessly within the GitHub AT-AT framework, facilitating efficient and secure automation for Terraform and Azure-based projects.
 
-https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp
+This module follows the [official documentation](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp)
