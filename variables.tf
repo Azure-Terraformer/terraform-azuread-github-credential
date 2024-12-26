@@ -1,9 +1,11 @@
 variable "name" {
-  type = string
+  type        = string
+  description = "The display name for the Entra ID Application. This name identifies the application within Entra ID."
 }
 variable "description" {
-  type    = string
-  default = ""
+  type        = string
+  default     = ""
+  description = "A brief description of the Entra ID Application. This helps in identifying the purpose of the application within Entra ID."
 }
 variable "github_organization" {
   type        = string
@@ -11,7 +13,6 @@ variable "github_organization" {
 The name of the GitHub organization.
 This is used to scope the repository and actions workflows.
 DESCRIPTION
-
 }
 
 variable "repository_name" {
@@ -20,7 +21,6 @@ variable "repository_name" {
 The name of the GitHub repository.
 This repository will be used to store and manage the workflows and codebase.
 DESCRIPTION
-
 }
 
 variable "entity_type" {
@@ -94,7 +94,6 @@ DESCRIPTION
   }
 
 }
-
 variable "owners" {
   type        = list(string)
   description = "A list of the owners for the Entra ID Application"
